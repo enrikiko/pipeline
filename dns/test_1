@@ -1,0 +1,15 @@
+pipeline {
+   agent any
+
+   echo 'Hello Mr. ${username}'
+
+   stages {
+      stage('Deploy') {
+         steps {
+            echo "Running ${env.BUILD_ID} ${env.BUILD_NUMBER} on ${env.JENKINS_URL}"
+            git 'https://github.com/enrikiko/raspberry'
+
+         }
+      }
+   }
+}
