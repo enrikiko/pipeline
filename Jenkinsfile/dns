@@ -1,6 +1,10 @@
 pipeline {
    agent any
-
+   
+   environment {
+           PATH = "/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
+           ANS_HOME = tool('ansible')
+        }
 
    stages {
       stage('Deploy DNS') {
