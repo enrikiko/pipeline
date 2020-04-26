@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: on-failure
+    ports:
+    - "27017:27017"
+    networks:
+    - network
+  mongo:
+    image: jenkins/jenkins:lts
+    ports:
+    - "8080:8080"
+    - "50000:50000"
+    networks:
+    - network
