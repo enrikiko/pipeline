@@ -1,6 +1,6 @@
 pipeline {
    agent any
-   
+
    environment {
            PATH = "/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
            ANS_HOME = tool('ansible')
@@ -19,6 +19,14 @@ pipeline {
               colorized: true)
 
          }
+      },
+      post {
+        always {
+            sh("rm -rf .")
+        }
+        failure {
+            mail to: enriqueramosmunoz@gmail.com, subject: 'The Pipeline failed :('
+        }
       }
    }
 }
