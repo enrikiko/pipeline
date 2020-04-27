@@ -18,12 +18,4 @@ pipeline {
          }
       }
    }
-   post {
-     always {
-         cleanWs()
-     }
-     failure {
-         mail bcc: '', body: 'The Pipeline failed :(', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed :(', to: 'enriqueramosmunoz@gmail.com'
-     }
-   }
 }
