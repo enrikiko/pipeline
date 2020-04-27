@@ -23,7 +23,7 @@ pipeline {
    }
    post {
      always {
-         sh("rm -rf .")
+         cleanWs()
      }
      failure {
          mail bcc: '', body: 'The Pipeline failed :(', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed :(', to: 'enriqueramosmunoz@gmail.com'
