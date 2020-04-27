@@ -9,7 +9,7 @@ services:
     networks:
     - network
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:2.233
     container_name: jenkins
     ports:
     - "8080:8080"
