@@ -14,9 +14,9 @@ services:
     ports:
     - "8080:8080"
     - "50000:50000"
-    volumes:
-      - /tmp/jenkins:/var/jenkins_home
-    networks:
-    - network
+    # volumes:
+    #   - /tmp/jenkins:/var/jenkins_home
+    # networks:
+    # - network
 networks:
   network:
