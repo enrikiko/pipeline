@@ -2,11 +2,11 @@ pipeline {
    agent any
 
    stages {
-      stage('Deploy DNS') {
+      stage('Install docker') {
          steps {
             echo "Running ${env.BUILD_ID} TAG:${env.BUILD_TAG} on ${env.JENKINS_URL}"
             git 'https://github.com/enrikiko/raspberry'
-            sh("bash install_docker.sh ${IP}")
+            sh("bash install_docker.sh ${IP} ${PASSWORD}")
          }
       }
    }
