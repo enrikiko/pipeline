@@ -25,7 +25,7 @@ pipeline {
             sh("rm -rf .")
         }
         failure {
-            mail to: enriqueramosmunoz@gmail.com, subject: 'The Pipeline failed :('
+            mail bcc: '', body: 'The Pipeline failed :(', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed :(', to: 'enriqueramosmunoz@gmail.com'
         }
       }
    }
