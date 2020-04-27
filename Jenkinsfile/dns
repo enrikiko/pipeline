@@ -19,7 +19,7 @@ pipeline {
               colorized: true)
 
          }
-      },
+      }
       post {
         always {
             sh("rm -rf .")
