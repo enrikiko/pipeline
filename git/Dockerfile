@@ -5,8 +5,7 @@ RUN apt install -y apt openssh-client
 RUN apt install -y git
 COPY ./private ./private
 RUN mkdir text.txt
-ARG TEST
-ARG PASSWORD
+ENV PASSWORD ${GIT_PASSWORD}
 RUN echo $PASSWORD > ./password
 RUN ansible-vault decrypt --vault-password-file=./password private
 RUN mkdir ~/.ssh
