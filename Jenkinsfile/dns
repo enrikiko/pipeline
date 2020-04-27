@@ -1,11 +1,6 @@
 pipeline {
    agent any
 
-   environment {
-           PATH = "/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
-           ANS_HOME = tool('ansible')
-        }
-
    stages {
       stage('Deploy DNS') {
          steps {
@@ -13,7 +8,17 @@ pipeline {
             git 'https://github.com/enrikiko/raspberry'
             sh("pwd")
             sh("ls -ls")
+            sh("bash haproxy.sh")
+
          }
       }
+   }
+   post {
+     always {
+         cleanWs()
+     }
+     failure {
+         mail bcc: '', body: 'The Pipeline failed :(', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed :(', to: 'enriqueramosmunoz@gmail.com'
+     }
    }
 }
