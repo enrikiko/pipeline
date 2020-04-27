@@ -10,10 +10,13 @@ services:
     - network
   jenkins:
     image: jenkins
-    container_name: jenkins
+    container_name: jenkins/jenkins:lts
     ports:
     - "8080:8080"
     - "50000:50000"
+    - type: bind
+      source: /home/jenkins
+      target: /var/jenkins_home
     networks:
     - network
 networks:
