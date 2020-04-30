@@ -1,0 +1,19 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Run link') {
+         steps {
+            echo "Running ${env.BUILD_ID} TAG:${env.BUILD_TAG} on ${env.JENKINS_URL}"
+            git 'https://github.com/enrikiko/link'
+            sh("bash build.sh ${env.BUILD_TAG} ${USER_NAME} ${USER_PASSWORD} ${CITY} ${JOB_TITLE} ${BLACK_LIST}")
+         }
+      }
+   }
+   post {
+     always {
+         sh("bash clean.sh ${env.BUILD_TAG}")
+         cleanWs()
+     }
+   }
+}

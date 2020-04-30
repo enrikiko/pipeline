@@ -19,6 +19,9 @@ services:
     #   - /tmp/jenkins:/var/jenkins_home
     # networks:
     # - network
+  docker:
+    image: docker
+    container_name: docker
   git:
     container_name: git
     restart: on-failure
