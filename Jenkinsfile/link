@@ -5,7 +5,7 @@ pipeline {
       stage('Run link') {
          steps {
             echo "Running ${env.BUILD_ID} TAG:${env.BUILD_TAG} on ${env.JENKINS_URL}"
-            git 'https://github.com/enrikiko/rasperry'
+            git 'https://github.com/enrikiko/raspberry'
             sh("bash build.sh ${env.BUILD_TAG} ${USER_NAME} ${USER_PASSWORD} ${CITY} ${JOB_TITLE} ${BLACK_LIST}")
          }
       }
