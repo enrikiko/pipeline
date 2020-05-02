@@ -6,7 +6,7 @@ pipeline {
          steps {
             echo "Running ${env.BUILD_ID} TAG:${env.BUILD_TAG} on ${env.JENKINS_URL}"
             git 'https://github.com/enrikiko/raspberry'
-            sh("bash haproxy.sh")
+            sh("bash haproxy.sh ${ip} ${haproxy_ip} ${password}")
 
          }
       }
