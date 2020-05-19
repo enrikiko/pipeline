@@ -31,7 +31,7 @@ services:
   camera:
     container_name: camera
     restart: on-failure
-    build: ../camera/.
+    build: ./camera/.
     ports:
     - "8400:3000"
     volumes:
@@ -41,7 +41,7 @@ services:
   file:
     container_name: file
     restart: on-failure
-    build: ../file/.
+    build: ./file/.
     ports:
     - "8500:3000"
     volumes:
@@ -51,7 +51,7 @@ services:
   ftp:
     container_name: ftp
     restart: on-failure
-    build: ../ftp/.
+    build: ./ftp/.
     ports:
     - "2121:21"
     volumes:
@@ -61,7 +61,7 @@ services:
   s3:
     container_name: s3
     restart: on-failure
-    build: ../s3/.
+    build: ./s3/.
     environment:
     - ACCESS_KEY=${ACCESS_KEY}
     - SECRET_KEY=${SECRET_KEY}
