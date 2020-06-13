@@ -1,12 +1,12 @@
 version: "3.3"
 services:
-  jenkins:
-    image: jenkins/jenkins:2.233
-    container_name: jenkins
-    build: ./jenkins/.
-    ports:
-    - "8080:8080"
-    - "50000:50000"
+  # jenkins:
+  #   image: jenkins/jenkins:2.233
+  #   container_name: jenkins
+  #   build: ./jenkins/.
+  #   ports:
+  #   - "8080:8080"
+  #   - "50000:50000"
     # volumes:
     #   - /tmp/jenkins:/var/jenkins_home
     # networks:
@@ -48,16 +48,16 @@ services:
     - type: bind
       source: /media/miso/ExtDriver/eramosFiles
       target: /scr/files/
-  ftp:
-    container_name: ftp
-    restart: on-failure
-    build: ./ftp/.
-    ports:
-    - "2121:21"
-    volumes:
-    - type: bind
-      source: /media/miso/ExtDriver/eramos
-      target: /root/data
+  # ftp:
+  #   container_name: ftp
+  #   restart: on-failure
+  #   build: ./ftp/.
+  #   ports:
+  #   - "2121:21"
+  #   volumes:
+  #   - type: bind
+  #     source: /media/miso/ExtDriver/eramos
+  #     target: /root/data
   s3:
     container_name: s3
     restart: on-failure
