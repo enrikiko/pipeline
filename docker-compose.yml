@@ -1,5 +1,13 @@
 version: "3.3"
 services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: on-failure
+    ports:
+    - "27017:27017"
+    volumes:
+    - /media/ubuntu/db1:/data/db
   # jenkins:
   #   image: jenkins/jenkins:2.233
   #   container_name: jenkins
@@ -36,7 +44,7 @@ services:
     - "8400:3000"
     volumes:
     - type: bind
-      source: /media/miso/ExtDriver/eramos
+      source: /media/ubuntu/ExtDriver/eramos
       target: /root/node/eramos
   file:
     container_name: file
@@ -46,7 +54,7 @@ services:
     - "8500:3000"
     volumes:
     - type: bind
-      source: /media/miso/ExtDriver/eramosFiles
+      source: /media/ubuntu/ExtDriver/eramosFiles
       target: /scr/files/
   # ftp:
   #   container_name: ftp
@@ -56,7 +64,7 @@ services:
   #   - "2121:21"
   #   volumes:
   #   - type: bind
-  #     source: /media/miso/ExtDriver/eramos
+  #     source: /media/ubuntu/ExtDriver/eramos
   #     target: /root/data
   s3:
     container_name: s3
@@ -68,7 +76,7 @@ services:
     - BUCKETS_NAME=${BUCKETS_NAME}
     volumes:
     - type: bind
-      source: /media/miso/ExtDriver
+      source: /media/ubuntu/ExtDriver
       target: /usr/src/app/data
 networks:
   network:
