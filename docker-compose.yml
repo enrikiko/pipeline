@@ -7,7 +7,7 @@ services:
     ports:
     - "27017:27017"
     volumes:
-    - /media/ubuntu/ExtDriver/db2:/data/db
+    - /media/ubuntu/ExtDriver/db1:/data/db
   # jenkins:
   #   image: jenkins/jenkins:2.233
   #   container_name: jenkins
