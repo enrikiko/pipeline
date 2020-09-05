@@ -7,6 +7,7 @@ COPY ./private ./private
 RUN mkdir text.txt
 ARG PASSWORD
 RUN echo $PASSWORD > ./password
+RUN cat ./password
 RUN ansible-vault decrypt --vault-password-file=./password private
 RUN mkdir ~/.ssh
 RUN chmod 700 ~/.ssh
