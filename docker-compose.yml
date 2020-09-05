@@ -13,7 +13,7 @@ services:
     restart: on-failure
     build: ./git/.
     environment:
-      - PASSWORD=$GIT_PASSWORD
+      - PASSWORD=${GIT_PASSWORD}
   ip:
     container_name: ip
     restart: on-failure
