@@ -7,7 +7,6 @@ COPY ./private ./private
 RUN mkdir text.txt
 ARG PASSWORD
 RUN echo $PASSWORD > ./password
-RUN cat ./password
 RUN ansible-vault decrypt --vault-password-file=./password private
 RUN mkdir ~/.ssh
 RUN chmod 700 ~/.ssh
@@ -21,5 +20,5 @@ RUN chmod 777 entryRandom.sh
 RUN chmod 777 entry.sh
 RUN chmod 777 commit.sh
 RUN apt install -y python
-#ENTRYPOINT ["sh", "init.sh"]
-CMD sleep 1000000
+ENTRYPOINT ["sh", "init.sh"]
+#CMD sleep 1000000
