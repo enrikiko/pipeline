@@ -8,17 +8,6 @@ services:
     - "27017:27017"
     volumes:
     - /media/ubuntu/db1:/data/db
-  # jenkins:
-  #   image: jenkins/jenkins:2.233
-  #   container_name: jenkins
-  #   build: ./jenkins/.
-  #   ports:
-  #   - "8080:8080"
-  #   - "50000:50000"
-    # volumes:
-    #   - /tmp/jenkins:/var/jenkins_home
-    # networks:
-    # - network
   git:
     container_name: git
     restart: on-failure
@@ -34,7 +23,7 @@ services:
     restart: on-failure
     build: ./router53/.
     environment:
-    - ROUTE53_URL=https://t5018nbtn5.execute-api.eu-central-1.amazonaws.com/final/DNS_setting_lambda
+    - ROUTE53_URL=${ROUTE53_URL}
     - ROUTE53_PASSWORD=${ROUTE53_PASSWORD}
   camera:
     container_name: camera
@@ -56,16 +45,6 @@ services:
     - type: bind
       source: /media/ubuntu/ExtDriver/eramosFiles
       target: /scr/files/
-  # ftp:
-  #   container_name: ftp
-  #   restart: on-failure
-  #   build: ./ftp/.
-  #   ports:
-  #   - "2121:21"
-  #   volumes:
-  #   - type: bind
-  #     source: /media/ubuntu/ExtDriver/eramos
-  #     target: /root/data
   s3:
     container_name: s3
     restart: on-failure
@@ -80,3 +59,22 @@ services:
       target: /usr/src/app/data
 networks:
   network:
+  # ftp:
+  #   container_name: ftp
+  #   restart: on-failure
+  #   build: ./ftp/.
+  #   ports:
+  #   - "2121:21"
+  #   volumes:
+  #   - type: bind
+  #     source: /media/ubuntu/ExtDriver/eramos
+  #     target: /root/data
+  # jenkins:
+  #   image: jenkins/jenkins:2.233
+  #   container_name: jenkins
+  #   build: ./jenkins/.
+  #   ports:
+  #   - "8080:8080"
+  #   - "50000:50000"
+    # volumes:
+    #   - /tmp/jenkins:/var/jenkins_home
