@@ -5,7 +5,7 @@ RUN apt install -y apt openssh-client
 RUN apt install -y git
 COPY ./private ./private
 RUN mkdir text.txt
-ARG PASSWORD 
+ARG PASSWORD
 RUN echo $PASSWORD > ./password
 RUN ansible-vault decrypt --vault-password-file=./password private
 RUN mkdir ~/.ssh
@@ -20,4 +20,5 @@ RUN chmod 777 entryRandom.sh
 RUN chmod 777 entry.sh
 RUN chmod 777 commit.sh
 RUN apt install -y python
-ENTRYPOINT ["sh", "init.sh"]
+#ENTRYPOINT ["sh", "init.sh"]
+CMD sleep 1000000
