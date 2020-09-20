@@ -5,7 +5,7 @@ from upload import upload_to_aws
 
 
 class Watcher:
-    DIRECTORY_TO_WATCH = "/usr/src/app"
+    DIRECTORY_TO_WATCH = "/usr/src/app/data"
     def __init__(self):
         self.observer = Observer()
     def run(self):
@@ -14,7 +14,7 @@ class Watcher:
         self.observer.start()
         try:
             while True:
-                time.sleep(5)
+                time.sleep(1)
         except:
             self.observer.stop()
             print ("Error")
