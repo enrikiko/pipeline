@@ -45,14 +45,25 @@ services:
     - type: bind
       source: /media/ubuntu/ExtDriver/eramosFiles
       target: /scr/files/
-  s3:
-    container_name: s3
+  # s3:
+  #   container_name: s3
+  #   restart: on-failure
+  #   build: ./s3/.
+  #   environment:
+  #   - ACCESS_KEY=${ACCESS_KEY}
+  #   - SECRET_KEY=${SECRET_KEY}
+  #   - BUCKETS_NAME=${BUCKETS_NAME}
+  #   volumes:
+  #   - type: bind
+  #     source: /media/ubuntu/ExtDriver
+  #     target: /usr/src/app/data
+  Send_files:
+    container_name: Send_files
     restart: on-failure
-    build: ./s3/.
+    build: ./Send_files/.
     environment:
-    - ACCESS_KEY=${ACCESS_KEY}
-    - SECRET_KEY=${SECRET_KEY}
-    - BUCKETS_NAME=${BUCKETS_NAME}
+    - API_URL=${API_URL}
+    - API_KEY=${API_KEY}
     volumes:
     - type: bind
       source: /media/ubuntu/ExtDriver
