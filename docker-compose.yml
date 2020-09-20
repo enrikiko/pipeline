@@ -57,10 +57,10 @@ services:
   #   - type: bind
   #     source: /media/ubuntu/ExtDriver
   #     target: /usr/src/app/data
-  Send_files:
-    container_name: Send_files
+  send_files:
+    container_name: send_files
     restart: on-failure
-    build: ./Send_files/.
+    build: ./send_files/.
     environment:
     - API_URL=${API_URL}
     - API_KEY=${API_KEY}
