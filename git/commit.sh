@@ -1,5 +1,6 @@
 #! /bin/bash
 echo "Starting $0"
+sleep 60
 text=$(python ./randomSentence.py)
 pushd ./Java
 git pull

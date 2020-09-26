@@ -36,5 +36,6 @@ class Handler(FileSystemEventHandler):
 
 
 if __name__ == '__main__':
+    print("Starting")
     w = Watcher()
     w.run()
