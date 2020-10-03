@@ -14,12 +14,12 @@ services:
     build: ./git/.
     environment:
       - PASSWORD=${GIT_PASSWORD}
-  ip:
-    container_name: ip
-    restart: on-failure
-    build: ./ip/.
-  set_router:
-    container_name: set_router
+  # ip:
+  #   container_name: ip
+  #   restart: on-failure
+  #   build: ./ip/.
+  setIp:
+    container_name: setIp
     restart: on-failure
     build: ./router53/.
     environment:
@@ -45,29 +45,29 @@ services:
     - type: bind
       source: /media/ubuntu/ExtDriver/eramosFiles
       target: /scr/files/
-  s3:
-    container_name: s3
-    restart: on-failure
-    build: ./s3/.
-    environment:
-    - ACCESS_KEY=${ACCESS_KEY}
-    - SECRET_KEY=${SECRET_KEY}
-    - BUCKETS_NAME=${BUCKETS_NAME}
-    volumes:
-    - type: bind
-      source: /media/ubuntu/ExtDriver
-      target: /usr/src/app/data
-  send_files:
-    container_name: send_files
-    restart: on-failure
-    build: ./send_files/.
-    environment:
-    - API_URL=${API_URL}
-    - API_KEY=${API_KEY}
-    volumes:
-    - type: bind
-      source: /media/ubuntu/ExtDriver
-      target: /usr/src/app/data
+  # s3:
+  #   container_name: s3
+  #   restart: on-failure
+  #   build: ./s3/.
+  #   environment:
+  #   - ACCESS_KEY=${ACCESS_KEY}
+  #   - SECRET_KEY=${SECRET_KEY}
+  #   - BUCKETS_NAME=${BUCKETS_NAME}
+  #   volumes:
+  #   - type: bind
+  #     source: /media/ubuntu/ExtDriver
+  #     target: /usr/src/app/data
+  # send_files:
+  #   container_name: send_files
+  #   restart: on-failure
+  #   build: ./send_files/.
+  #   environment:
+  #   - API_URL=${API_URL}
+  #   - API_KEY=${API_KEY}
+  #   volumes:
+  #   - type: bind
+  #     source: /media/ubuntu/ExtDriver
+  #     target: /usr/src/app/data
 networks:
   network:
   # ftp:
