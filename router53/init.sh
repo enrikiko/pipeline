@@ -7,10 +7,10 @@ do
     echo "Route53 is set correctly"
   else
     #curl $ROUTE53_URL --header "Content-Type: application/json" --data '{"password":"'${ROUTE53_PASSWORD}'"}' 2>/dev/null > /tmp/curl.out
-    curl -X POST -H "x-api-key: ${ROUTE53_PASSWORD}" $ROUTE53_URL 2>/dev/null > /tmp/curl.out
+    curl -X POST -H "x-api-key: ${ROUTE53_KEY}" ${ROUTE53_URL} 2>/dev/null > /tmp/curl.out
     date
     cat /tmp/curl.out
     echo "Route53 have been set"
   fi
-	sleep 300
+	sleep 3600
 done
