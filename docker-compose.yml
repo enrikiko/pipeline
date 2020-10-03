@@ -24,7 +24,7 @@ services:
     build: ./router53/.
     environment:
     - ROUTE53_URL=${ROUTE53_URL}
-    - ROUTE53_PASSWORD=${ROUTE53_PASSWORD}
+    - ROUTE53_KEY=${ROUTE53_KEY}
   camera:
     container_name: camera
     restart: on-failure
